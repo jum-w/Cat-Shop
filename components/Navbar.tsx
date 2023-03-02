@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Home() {
     return (
         <div className="flex justify-between mx-auto border-gray-300 text-lg">
-            <div className="p-4 block">
+            <div className="p-4">
                 <Image src={logo} alt="Logo picute" />
             </div>
             <div className="flex justify-center items-center">

@@ -1,24 +1,27 @@
-import logo from './purrfect_picks.svg'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface ProductInfoProps {
     id: number;
     name: string;
     description: string;
     price: number;
+    type: string;
+    image: StaticImageData
 }
 
-export default function Product({ name, description, price }: ProductInfoProps) {
+export default function Product({ name, description, price, type, image }: ProductInfoProps) {
     return (
-        <div className="shadow-lg flex flex-col sm:w-1/4 border border-gray-300 rounded p-2 m-4">
+        <div className="shadow-lg flex flex-col md:w-1/4 border border-gray-300 rounded p-2 m-4">
             <div className="flex justify-center mb-6">
-                <Image src={logo} alt="Logo picute" height={150} />
+                <Image src={image} alt="Image of item displayed" height={200} />
             </div>
             <div className="flex flex-col items-center text-center grow">
                 <h1 className='font-bold text-lg'>{name}</h1>
                 <h2 className='text-gray-600 mb-4 text-sm w-4/5 grow'>{description}</h2>
-                <h1 className='font-bold mb-4 text-blue1'>£{price}</h1>
-                <button className='bg-blue1 hover:bg-blue2 w-full py-1 rounded text-gray-50 '>Add to Cart</button>
+                <h1 className='font-bold mb-4 text-blue1 text-lg'>£{price}</h1>
+                <button className='bg-blue1 hover:bg-blue2 w-full py-1 rounded text-gray-50 flex justify-center items-center'><FontAwesomeIcon icon={faShoppingCart} className="mr-2" />Add to Cart</button>
             </div>
         </div>
     )
