@@ -1,4 +1,4 @@
-import premium from './kitten-chicken.png'
+import premium from '../assets/kitten-chicken.png'
 import { StaticImageData } from 'next/image';
 
 interface ProductInfo {
