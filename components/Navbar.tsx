@@ -9,9 +9,9 @@ export default function Home() {
                 <Link href="/"><Image src={logo} alt="Logo picture" /></Link>
             </div>
             <div className="flex justify-center items-center">
-                <a href="/" className="px-4 hover:text-blue1 duration-150">Membership</a>
-                <a href="/shop" className="px-4 hover:text-blue1 duration-150">About</a>
-                <a href="/about" className="px-4 hover:text-blue1 duration-150"></a>
+                <Link href="/" className="px-4 hover:text-blue1 duration-150">Membership</Link>
+                <Link href="/shop" className="px-4 hover:text-blue1 duration-150">About</Link>
+                <Link href="/about" className="px-4 hover:text-blue1 duration-150"></Link>
             </div>
         </div>
     )

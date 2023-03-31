@@ -1,4 +1,3 @@
-import Cart from "@/components/Cart";
 import Navbar from "@/components/Navbar";
 import Product from "@/components/Product";
 import ProductInfo from "@/components/ProductInfo"
@@ -6,6 +5,7 @@ import { faCaretDown, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "@/context/ShopContext";
+import Link from "next/link";
 
 export default function Shop() {
     const filter: string[] = ["Food", "Care", "Toy", "Treat", "Furniture"]
@@ -36,10 +36,10 @@ export default function Shop() {
             <Navbar />
             {showCart && <div className="fixed inset-0 bg-gray-900 opacity-50 z-1" onClick={() => { handleCart(false) }}></div>}
             <div className="flex w-2/5 justify-center mx-auto mt-8 items-center">
-                <div className="relative" onClick={() => { handleCart(!showCart) }}>
-                    <button><FontAwesomeIcon icon={faShoppingCart} className="text-xl" /></button>
+                <Link className="relative cursor-pointer" href="/cart">
+                    <><FontAwesomeIcon icon={faShoppingCart} className="text-xl" /></>
                     <span className="absolute left-3 top-2 z-2 bg-blue1 rounded-full w-5 flex justify-center text-sm text-gray-50">{totalItems}</span>
-                </div>
+                </Link>
                 <div className="mx-5">
                     <button className="w-32 border border-blue1 mb-1 rounded hover:bg-gray-100 duration-150" onClick={() => { setDropDownVisible(!dropDownVisible) }}>Filter <FontAwesomeIcon icon={faCaretDown} className={`ml-2 duration-150 ${dropDownVisible ? "rotate-90" : ""}`} /></button>
                     {dropDownVisible && (
@@ -67,7 +67,6 @@ export default function Shop() {
                         <Product {...val} key={index} />
                     )
                 })}
-                {showCart && <Cart handle={handleCart} />}
             </div>
         </div>
     )
