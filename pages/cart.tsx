@@ -3,13 +3,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CartedProduct from "../components/CartedProduct";
 import products from "../components/ProductInfo"
 import { ShopContext } from "@/context/ShopContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Cart() {
-    const { cartItems } = useContext<any>(ShopContext)
+    const { cartItems } = useContext<any>(ShopContext);
+    const [totalAmount, setTotalAmount] = useState<string>("")
 
-    console.log(cartItems)
+    const calculateTotalAmount = () => {
+        var total: number = 0;
+        products.map((val) => {
+            if (cartItems[val.id] > 0)
+                total += cartItems[val.id] * val.price
+        })
+        var roundedTotal = total.toFixed(2)
+        setTotalAmount(roundedTotal)
+    }
+
+    useEffect(() => {
+        calculateTotalAmount()
+    }, [cartItems])
+
 
     return (
         <div className="min-h-screen bg-gray-50 shadow-xl z-2">
@@ -18,10 +32,11 @@ export default function Cart() {
                 {products.map((val) => {
                     if (cartItems[val.id] > 0)
                         return (
-                            <CartedProduct />
+                            <CartedProduct {...val} amount={cartItems[val.id]} />
                         )
                 })}
             </>
+            {totalAmount}
         </div>
     )
 }

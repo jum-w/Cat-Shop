@@ -1,30 +1,31 @@
-import premium from '../assets/kitten-chicken.png'
 import Image from 'next/image'
 import { StaticImageData } from 'next/image';
-import products from './ProductInfo';
+import { ShopContext } from '@/context/ShopContext';
+import { useContext } from 'react';
 
 interface ProductInfoProps {
     id: number;
     name: string;
-    description: string;
     price: number;
-    type: string;
+    amount: number;
     image: StaticImageData
 }
 
-export default function CartedProduct() {
+export default function CartedProduct({ name, price, image, id, amount }: ProductInfoProps) {
+    const { addToCart, removeFromCart } = useContext<any>(ShopContext)
+
     return (
-        <div className="w-2/3 flex justify-between mx-auto items-center">
+        <div className="w-2/3 flex justify-between mx-auto items-center my-4">
             <div className="">
-                <Image src={premium} alt="item pic" height={200} />
-                <h1 className="text-center">Title of product</h1>
+                <Image src={image} alt="item pic" height={200} />
+                <h1 className="text-center">{name}</h1>
             </div>
             <div className="flex">
-                <button className="p-4 hover:text-gray-400 duration-150">-</button>
-                <h1 className="mx-6 my-4">1</h1>
-                <button className="p-4 hover:text-gray-400 duration-150">+</button>
+                <button className="p-4 hover:text-gray-400 duration-150" onClick={() => { removeFromCart(id) }}>-</button>
+                <h1 className="mx-6 my-4">{amount}</h1>
+                <button className="p-4 hover:text-gray-400 duration-150" onClick={() => { addToCart(id) }}>+</button>
             </div>
-            <h1>Total</h1>
+            <h1>£{price * amount}</h1>
         </div>
     )
 }
