@@ -5,7 +5,6 @@ export const ShopContext = createContext(null);
 
 const getShopItems = (ProductInfo: any) => {
     let shopObject: any = {}
-    let id = ProductInfo.id;
     for (var i = 1; i < ProductInfo.length + 1; i++) {
         shopObject[i] = 0;
     }
@@ -26,7 +25,12 @@ export const ShopContextProvider = (props: any) => {
         setTotalItems(totalItems - 1)
     }
 
-    const contextValue: any = { cartItems, addToCart, removeFromCart, totalItems }
+    const deleteFromCart = (itemId: number) => {
+        setCartItems((prev: any) => ({ ...prev, [itemId]: prev[itemId] - prev[itemId] }))
+        setTotalItems(totalItems - cartItems[itemId])
+    }
+
+    const contextValue: any = { cartItems, addToCart, removeFromCart, totalItems, deleteFromCart }
 
     return (
         <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>
