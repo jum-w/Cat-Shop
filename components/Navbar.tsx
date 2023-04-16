@@ -8,10 +8,10 @@ export default function Home() {
             <div className="p-4">
                 <Link href="/"><Image src={logo} alt="Logo picture" /></Link>
             </div>
-            <div className="flex justify-center items-center">
-                <Link href="/" className="px-4 hover:text-blue1 duration-150">Membership</Link>
-                <Link href="/shop" className="px-4 hover:text-blue1 duration-150">About</Link>
-                <Link href="/about" className="px-4 hover:text-blue1 duration-150"></Link>
+            <div className="flex justify-center items-center mr-8">
+                <Link href="/shop" className="px-4 hover:text-blue1 duration-150">Shop</Link>
+                <Link href="/membership" className="px-4 hover:text-blue1 duration-150">Membership</Link>
+                <Link href="/about" className="px-4 hover:text-blue1 duration-150">About</Link>
             </div>
         </div>
     )

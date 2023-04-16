@@ -19,7 +19,7 @@ export default function CartedProduct({ name, price, image, id, amount }: Produc
     var total = (price * amount).toFixed(2)
 
     return (
-        <div className="lg:w-3/5 w-screen flex justify-between px-6 mx-auto items-center my-4">
+        <div className="lg:w-3/5 w-full flex justify-between px-6 mx-auto items-center my-4">
             <div>
                 <Image src={image} alt="item pic" height={200} />
                 <h1 className="text-center">{name}</h1>
