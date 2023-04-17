@@ -30,7 +30,7 @@ export default function CartedProduct({ name, price, image, id, amount }: Produc
                 <button className="p-4 hover:text-gray-400 duration-150" onClick={() => { addToCart(id) }}>+</button>
             </div>
             <h1>£{total}</h1>
-            <button onClick={() => { deleteFromCart(id) }}><FontAwesomeIcon icon={faXmark} className="hover:text-gray-400 duration-150 ml-6" /></button>
+            <button onClick={() => { deleteFromCart(id) }}><FontAwesomeIcon icon={faXmark} className="hover:text-red-600 duration-150 ml-6" /></button>
         </div>
     )
 }
