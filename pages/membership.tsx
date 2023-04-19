@@ -4,7 +4,8 @@ import Image from "next/image";
 import ItemStep from "@/components/ItemStep";
 import DurationStep from "@/components/DurationStep";
 import MembershipInfo from "@/components/MembershipInfo";
-import { Link, animateScroll as scroll } from "react-scroll"
+import { Link } from "react-scroll"
+import SummaryStep from "@/components/SummaryStep";
 
 
 export default function Membership() {
@@ -20,9 +21,12 @@ export default function Membership() {
                         Get Started
                     </Link>
                 </div>
-                <MembershipInfo />
-                <ItemStep />
-                <DurationStep />
+                <>
+                    <MembershipInfo />
+                    <ItemStep />
+                    <DurationStep />
+                    <SummaryStep />
+                </>
             </>
         </>
     )

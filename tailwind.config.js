@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         default: '#1F1F1F',
         blue1: '#6C63FF',
-        blue2: '#5d56e5'
+        blue2: '#5d56e5',
+        blue3: '#4e46cf'
       }
     },
   },

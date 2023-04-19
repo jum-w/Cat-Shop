@@ -15,6 +15,7 @@ export const ShopContextProvider = (props: any) => {
     const [cartItems, setCartItems] = useState(getShopItems(ProductInfo))
     const [subItems, setSubItems] = useState(getShopItems(ProductInfo))
     const [totalItems, setTotalItems] = useState(0)
+    const [frequency, setFrequency] = useState("")
 
     const addToCart = (itemId: number) => {
         setCartItems((prev: any) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
@@ -43,7 +44,11 @@ export const ShopContextProvider = (props: any) => {
         setSubItems((prev: any) => ({ ...prev, [itemId]: prev[itemId] - prev[itemId] }))
     }
 
-    const contextValue: any = { cartItems, addToCart, removeFromCart, totalItems, deleteFromCart, addToSub, removeFromSub, deleteFromSub, subItems }
+    const setFreq = (duration: string) => {
+        setFrequency(duration)
+    }
+
+    const contextValue: any = { cartItems, addToCart, removeFromCart, totalItems, deleteFromCart, addToSub, removeFromSub, deleteFromSub, subItems, setFreq, frequency }
 
     return (
         <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>

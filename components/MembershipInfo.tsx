@@ -21,7 +21,7 @@ const ImageInfo = ({ image, desc }: ImageInfoProps) => {
 
 export default function MembershipInfo() {
     return (
-        <div className=" text-3xl mx-4" id="membership">
+        <div className=" text-5xl mx-4" id="membership">
             <div className="text-center font-bold mb-12">
                 <h1>How it works</h1>
             </div>
@@ -29,7 +29,6 @@ export default function MembershipInfo() {
                 <ImageInfo image={details} desc={"Enter your details"} />
                 <ImageInfo image={time} desc={"Secure your savings by committing to a few recurring orders."} />
                 <ImageInfo image={reward} desc={"Reap the rewards with every reoccuring delivery!"} />
-
             </div>
         </div>
     )
