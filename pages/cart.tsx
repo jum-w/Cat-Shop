@@ -16,24 +16,7 @@ export const SummaryInfo = ({ title, cost }: { title: string, cost: string }) =>
 }
 
 export default function Cart() {
-    const { cartItems, totalItems } = useContext<any>(ShopContext);
-    const [totalAmount, setTotalAmount] = useState<string>("")
-    const [totalAndShipping, setTotalAndShipping] = useState<string>("");
-
-    const calculateTotalAmount = () => {
-        var total: number = 0;
-        products.map((val) => {
-            if (cartItems[val.id] > 0)
-                total += cartItems[val.id] * val.price
-        })
-        var roundedTotal = total.toFixed(2)
-        setTotalAmount(roundedTotal)
-        setTotalAndShipping((total + 4.99).toFixed(2))
-    }
-
-    useEffect(() => {
-        calculateTotalAmount()
-    }, [cartItems])
+    const { cartItems, totalItems, totalCartPrice } = useContext<any>(ShopContext);
 
     return (
         <div className="h-screen bg-gray-50 z-2 flex flex-col">
@@ -60,9 +43,9 @@ export default function Cart() {
                     {totalItems === 0 && <p className="pt-4 text-center">Nothing to purchase!</p>}
                     {totalItems > 0 &&
                         <div>
-                            <SummaryInfo title={"Order Summary"} cost={totalAmount} />
+                            <SummaryInfo title={"Order Summary"} cost={totalCartPrice.toFixed(2)} />
                             <SummaryInfo title={"Shipping"} cost={"4.99"} />
-                            <SummaryInfo title={"Total"} cost={totalAndShipping} />
+                            <SummaryInfo title={"Total"} cost={(totalCartPrice + 4.99).toFixed(2)} />
                             <div className="flex justify-center mt-8">
                                 <button className="bg-black px-6 py-3 rounded-2xl hover:bg-gray-700 duration-150"><FontAwesomeIcon icon={faShoppingCart} className="mr-3" />Checkout</button>
                             </div>

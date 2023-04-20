@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select"
 
-const options = products.map((val) => ({ value: val.name, label: val.name, id: val.id }))
-
 export default function ItemStep() {
     const { addToSub, removeFromSub, deleteFromSub, subItems } = useContext<any>(ShopContext)
+
+    const options = products.map((val) => ({ value: val.name, label: val.name, id: val.id }))
+
     return (
         <div className="my-32 text-xl mx-4">
             <div className="">
@@ -40,7 +41,7 @@ export default function ItemStep() {
                 }} className="md:w-1/4 w-full md:w-64 rounded" onChange={(val) => { if (val) addToSub(val.id) }} />
                 <div className="w-full lg:w-3/4 flex flex-col lg:flex-row md:flex-wrap md:ml-16 items-center md:mt-0 mt-8">
                     {products.map((val) => {
-                        if (subItems[val.id] > 0)
+                        if (subItems[val.id])
                             return (
                                 <div className="border rounded border-blue2 h-10 flex justify-between p-2 mt-2 w-full md:w-96 mb-2 sm:mx-2 shadow-lg" key={val.id}>
                                     <h1 className="w-2/3">{val.name}</h1>
