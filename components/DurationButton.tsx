@@ -19,8 +19,8 @@ export default function DurationButton({ time }: ButtonProps) {
     }, [frequency])
 
     return (
-        <div className={`border border-blue1 w-max px-2 py-1 rounded shadow-xl hover:bg-blue2 hover:text-gray-50 duration-150 m-2 ${highlight ? "bg-blue2 text-white" : ""}`}>
-            <button onClick={handleDuration}>{time}</button>
+        <div className={`border border-blue1 w-max px-2 py-1 rounded shadow-xl hover:bg-blue2 hover:text-gray-50 duration-150 mr-4 mb-4 ${highlight ? "bg-blue2 text-white" : ""}`} onClick={handleDuration}>
+            <button>{time}</button>
         </div>
     )
 }

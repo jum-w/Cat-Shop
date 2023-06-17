@@ -7,7 +7,6 @@ import MembershipInfo from "@/components/MembershipInfo";
 import { Link } from "react-scroll"
 import SummaryStep from "@/components/SummaryStep";
 
-
 export default function Membership() {
     return (
         <>

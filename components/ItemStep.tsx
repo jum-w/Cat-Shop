@@ -11,13 +11,12 @@ export default function ItemStep() {
     const options = products.map((val) => ({ value: val.name, label: val.name, id: val.id }))
 
     return (
-        <div className="my-32 text-xl mx-4">
-            <div className="">
+        <div className="mt-32 text-xl mx-4 flex justify-center items-center flex-col">
+            <div className="flex flex-col text-center mb-8">
                 <h1>Step 1: Choose your items</h1>
                 <h2 className="text-sm text-gray-600">Choose which items to add to your subscription.</h2>
-                <hr className="my-2" />
             </div>
-            <div className="flex justify-between md:text-base md:flex-row flex-col items-center text-sm">
+            <div className="flex md:text-base flex-col items-center text-sm">
                 {/* <select className="bg-gray-100 border h-10 border-blue2 md:w-1/4 w-full md:w-64 px-2 py-2 rounded hover:border-blue-600">
                     <option value="">Select</option>
                     {products.map((val) => {
@@ -38,12 +37,12 @@ export default function ItemStep() {
                             backgroundColor: '#f3f4f6'
                         }
                     }),
-                }} className="md:w-1/4 w-full md:w-64 rounded" onChange={(val) => { if (val) addToSub(val.id) }} />
-                <div className="w-full lg:w-3/4 flex flex-col lg:flex-row md:flex-wrap md:ml-16 items-center md:mt-0 mt-8">
+                }} className="w-full rounded" onChange={(val) => { if (val) addToSub(val.id) }} />
+                <div className="flex flex-col md:flex-wrap items-center mt-8">
                     {products.map((val) => {
                         if (subItems[val.id])
                             return (
-                                <div className="border rounded border-blue2 h-10 flex justify-between p-2 mt-2 w-full md:w-96 mb-2 sm:mx-2 shadow-lg" key={val.id}>
+                                <div className="border rounded border-blue2 h-10 flex justify-between p-2 mt-2 w-full md:w-96 mb-2 shadow-lg" key={val.id}>
                                     <h1 className="w-2/3">{val.name}</h1>
                                     <div className="flex w-1/5">
                                         <button className="hover:text-gray-400 duration-150 w-8 text-center" onClick={() => { removeFromSub(val.id) }}>-</button>

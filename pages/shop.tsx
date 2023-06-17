@@ -43,7 +43,7 @@ export default function Shop() {
                 <div className="mx-5">
                     <button className="w-32 border border-blue1 mb-1 rounded hover:bg-gray-100 duration-150" onClick={() => { setDropDownVisible(!dropDownVisible) }}>Filter <FontAwesomeIcon icon={faCaretDown} className={`ml-2 duration-150 ${dropDownVisible ? "rotate-90" : ""}`} /></button>
                     {dropDownVisible && (
-                        <div className="fixed shadow bg-gray-50 rounded p-3 w-32">
+                        <div className="absolute shadow bg-gray-50 rounded p-3 w-32">
                             <ul>
                                 {filter.map((type, index) => (
                                     <li key={index}>

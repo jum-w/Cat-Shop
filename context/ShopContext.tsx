@@ -49,7 +49,7 @@ export const ShopContextProvider = (props: any) => {
 
     const deleteFromSub = (itemId: number) => {
         setSubItems((prev: any) => ({ ...prev, [itemId]: prev[itemId] - prev[itemId] }))
-        setTotalSubPrice(totalSubPrice - totalSubPrice)
+        setTotalSubPrice(totalSubPrice - ProductInfo[itemId - 1].price * subItems[itemId])
     }
 
     const setFreq = (duration: string) => {

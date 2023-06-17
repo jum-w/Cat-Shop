@@ -21,7 +21,7 @@ const ImageInfo = ({ image, desc }: ImageInfoProps) => {
 
 export default function MembershipInfo() {
     return (
-        <div className=" text-5xl mx-4" id="membership">
+        <div className="my-16 text-5xl mx-4" id="membership">
             <div className="text-center font-bold mb-12">
                 <h1>How it works</h1>
             </div>
