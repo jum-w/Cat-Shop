@@ -29,7 +29,7 @@ export default function SummaryStep() {
                                 After every <span className="border-b border-blue2">{frequency}</span> you will receive <span className="border-b border-blue2">5%</span> | <span className="border-b border-blue2">10%</span> | <span className="border-b border-blue2">15%</span>.
                             </div>
                             <div className="">
-                                The price of your next <span className="border-b border-blue2">month</span> | <span className="border-b border-blue2">3 months</span> | <span className="border-b border-blue2">6 months</span> will be <span className="border-b border-blue2">£{(totalSubPrice - (totalSubPrice / 10)).toFixed(2)}</span> | <span className="border-b border-blue2">£{(totalSubPrice - ((totalSubPrice / 100) * 15)).toFixed(2)}</span> | <span className="border-b border-blue2">£{(totalSubPrice - (totalSubPrice / 5)).toFixed(2)}</span>.
+                                The price of your next <span className="border-b border-blue2">order</span> | <span className="border-b border-blue2">3 orders</span> | <span className="border-b border-blue2">6 orders</span> will be <span className="border-b border-blue2">£{(totalSubPrice - (totalSubPrice / 10)).toFixed(2)}</span> | <span className="border-b border-blue2">£{(totalSubPrice - ((totalSubPrice / 100) * 15)).toFixed(2)}</span> | <span className="border-b border-blue2">£{(totalSubPrice - (totalSubPrice / 5)).toFixed(2)}</span>.
                             </div>
                         </div>
                     </div>
