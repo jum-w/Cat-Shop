@@ -37,12 +37,12 @@ export default function ItemStep() {
                             backgroundColor: '#f3f4f6'
                         }
                     }),
-                }} className="w-full rounded" onChange={(val) => { if (val) addToSub(val.id) }} />
+                }} className="w-96 rounded" onChange={(val) => { if (val) addToSub(val.id) }} />
                 <div className="flex flex-col md:flex-wrap items-center mt-8">
                     {products.map((val) => {
                         if (subItems[val.id])
                             return (
-                                <div className="border rounded border-blue2 h-10 flex justify-between p-2 mt-2 w-full md:w-96 mb-2 shadow-lg" key={val.id}>
+                                <div className="border rounded border-blue2 h-10 flex justify-between p-2 mt-2 w-96 mb-2 shadow-lg" key={val.id}>
                                     <h1 className="w-2/3">{val.name}</h1>
                                     <div className="flex w-1/5">
                                         <button className="hover:text-gray-400 duration-150 w-8 text-center" onClick={() => { removeFromSub(val.id) }}>-</button>
